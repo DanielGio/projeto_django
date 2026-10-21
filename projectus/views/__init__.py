@@ -1,2 +1,2 @@
 from .home import home
-from .user import login, logout, profile
+from .post_view import post_view
