@@ -6,13 +6,49 @@
 
     <h2>{{ post.title }}</h2>
 
-    <small>Por {{ author_name }} em {{ post.created_at|date:"d \d\e F \d\e Y \à\s H:i"}}.</small>
+    <small>Por {{ author_name }} em {{ post.created_at |date:"d/m/Y"}}.</small>
 
     <p><img src="{{ post.thumbnail }}" alt="{{ post.title }}"></p>
 
     <div style="padding: 16px 0">
         {{ post.textbody }}
     </div>
+
+    <hr>
+    <hr>
+
+    {% if user.is_authenticated %}
+    <h3>Comente</h3>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_div }}
+        <button type="submit">Postar</button>
+    </form>
+    &nbsp;
+    {% else %}
+    <p><a href="/accounts/login/">Logue-se para comentar</a></p>
+    {% endif %}
+
+    <hr>
+    <hr>
+
+    <h3>Comentários</h3>
+
+    {% for comment in comments %}
+    <p>
+        <strong>{{ comment.user.username }}</strong>
+        <small>{{ comment.created_at|date:"d \d\e F \d\e Y \à\s H:i" }}</small>
+    </p>
+    <p>{{ comment.comment }}</p>
+
+    <hr>
+    {% empty %}
+    <p>Nenhum comentário ainda.</p>
+    {% endfor %}
+
+    <hr>
+
 
 </article>
 
