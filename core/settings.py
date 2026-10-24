@@ -31,13 +31,14 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'projectus',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'projectus'
+    'django.contrib.sites'
 ]
 
 MIDDLEWARE = [
@@ -123,7 +124,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'pt-br'
 
-TIME_ZONE = 'America/Sao_Paulo'
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
@@ -141,14 +142,24 @@ STATIC_URL = 'static/'
 
 MAILERS = {
     'default': {
-        'BACKEND': 'django.core.mail.backends.console.EmailBackend',
+        'BACKEND': 'django.core.mail.backends.smtp.EmailBackend',
+        'OPTIONS': {
+            'host': 'smtp.gmail.com',
+            'port': 587,
+            'username': 'florencedgio@gmail.com',
+            'password': 'tyua dbjo ibww ntxl',
+            'use_tls': True,
+            'use_ssl': False,
+            'timeout': 20,
+        },
     },
 }
 
-# Redirecionamento da Autenticação
+# Redirecionamento da autenticação
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/accounts/login/'
 
-# Dados de ProjectUs
+# Dados de Meu Projeto de site
 
-SITENAME = 'Meu Projeto de Site'
+SITENAME = 'Meu Projeto de site'
+SITE_ID = 1
