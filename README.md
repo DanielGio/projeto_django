@@ -1,2 +1,2 @@
 # projeto_django
-Projeto cfinal da turma PYCG2026.3.
+Projeto final da turma PYCG2026.3.
