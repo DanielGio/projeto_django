@@ -12,15 +12,30 @@
 
     <div class="post__body">{{ post.textbody }}</div>
 
-    <div class="rating-box">
-        <div class="rating-box__summary">
-            {% include 'projectus/_stars.html' %}
-        </div>
+   <div class="rating-box">
 
-        {% if user.is_authenticated %}
-        <form class="rating-box__vote" method="POST" action="{% url 'rate_post' id=post.id %}">
+    <div class="rating-box__summary">
+        <span class="rating-box__label">Nota da publicação</span>
+        {% include 'projectus/_stars.html' %}
+    </div>
+
+    {% if user.is_authenticated %}
+    <details class="rating-box__details">
+        <summary>Avaliar esta publicação</summary>
+
+        <form class="rating-box__vote" method="POST"
+              action="{% url 'rate_post' id=post.id %}">
             {% csrf_token %}
-            <span>{% if user_score %}Sua nota: {{ user_score }}. Clique para mudar:{% else %}Dê sua nota:{% endif %}</span>
+
+            <span>
+                {% if user_score %}
+                    Sua nota atual é {{ user_score }} de 5.
+                    Você pode alterá-la:
+                {% else %}
+                    Escolha de 1 a 5 estrelas:
+                {% endif %}
+            </span>
+
             <div class="rate">
                 {% for value in star_values %}
                 <button type="submit" name="score" value="{{ value }}"
@@ -30,11 +45,15 @@
                 {% endfor %}
             </div>
         </form>
-        {% else %}
-        <p class="rating-box__vote"><a href="{% url 'login' %}?next={{ request.path }}">Entre</a> para dar sua nota.</p>
-        {% endif %}
-    </div>
+    </details>
+    {% else %}
+    <p class="rating-box__vote">
+        <a href="{% url 'login' %}?next={{ request.path }}">Entre</a>
+        para avaliar esta publicação.
+    </p>
+    {% endif %}
 
+</div>
     <section class="post-form">
         {% if user.is_authenticated %}
         <h3>Comente</h3>

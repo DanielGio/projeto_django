@@ -382,6 +382,43 @@ main:has(> aside) {
     font-size: .95rem;
 }
 
+
+.rating-box__label {
+    font-weight: 600;
+}
+
+.rating-box__details {
+    flex-basis: 100%;
+    border-top: 1px solid var(--line);
+    padding-top: .75rem;
+}
+
+.rating-box__details summary {
+    display: inline-block;
+    color: var(--primary);
+    font-weight: 600;
+    cursor: pointer;
+    padding: .35rem 0;
+}
+
+.rating-box__details summary:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+.rating-box__details[open] .rating-box__vote {
+    margin-top: .75rem;
+}
+
+.rating-box__details .rating-box__vote {
+    align-items: flex-start;
+}
+
+.rating-box__details .rating-box__vote span {
+    flex-basis: 100%;
+}
+
+
 .rating-box__vote {
     margin: 0;
     display: flex;
