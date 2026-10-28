@@ -20,9 +20,11 @@
     </div>
 
     {% if user.is_authenticated %}
-    <details class="rating-box__details">
-        <summary>Avaliar esta publicação</summary>
+   
+<details class="rating-box__details">
+    <summary>Avaliar esta publicação</summary>
 
+    <div class="rating-box__content">
         <form class="rating-box__vote" method="POST"
               action="{% url 'rate_post' id=post.id %}">
             {% csrf_token %}
@@ -39,14 +41,15 @@
             <div class="rate">
                 {% for value in star_values %}
                 <button type="submit" name="score" value="{{ value }}"
-                    class="{% if user_score and value <= user_score %}is-on{% endif %}"
-                    aria-label="Dar {{ value }} estrela{{ value|pluralize }}"
-                    title="{{ value }} estrela{{ value|pluralize }}">★</button>
+                        class="{% if user_score and value <= user_score %}is-on{% endif %}"
+                        aria-label="Dar {{ value }} estrela{{ value|pluralize }}"
+                        title="{{ value }} estrela{{ value|pluralize }}">★</button>
                 {% endfor %}
             </div>
-
         </form>
-    </details>
+    </div>
+</details>
+
     {% else %}
     <p class="rating-box__vote">
         <a href="{% url 'login' %}?next={{ request.path }}">Entre</a>

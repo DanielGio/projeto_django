@@ -555,22 +555,74 @@ aside h3 {
     color: var(--star-on);
 }
 
-/* Ao passar o mouse, mostra só o que seria votado */
-.rate:hover button:not(:hover):not(:hover ~ button) {
-    color: var(--star-off);
+
+
+/* ---------- Avaliação e animação ---------- */
+
+.rating-box__details summary {
+    display: inline-block;
+    cursor: pointer;
+    font-weight: 600;
+    padding: .35rem 0;
+    color: var(--primary);
+    transition: color .2s ease;
 }
 
-.rate button:hover {
-    transform: scale(1.15);
+.rating-box__details summary:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+.rating-box__details summary:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 4px;
+    border-radius: 3px;
+}
+
+.rating-box__details[open] summary {
+    margin-bottom: .75rem;
+}
+
+/* Conteúdo expansível */
+.rating-box__content {
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    transition:
+        grid-template-rows .35s ease,
+        opacity .25s ease;
+}
+
+.rating-box__content > form {
+    min-height: 0;
+    overflow: hidden;
+}
+
+.rating-box__details[open] .rating-box__content {
+    grid-template-rows: 1fr;
+    opacity: 1;
+}
+
+/* Respeita a preferência por menos movimento */
+@media (prefers-reduced-motion: reduce) {
+    .rating-box__content {
+        transition: none;
+    }
+}
+
+
+/* Espaçamento do formulário */
+.rating-box__details .rating-box__vote {
+    align-items: flex-start;
+}
+
+.rating-box__details .rating-box__vote span {
+    flex-basis: 100%;
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .rate button {
+    .rating-box__content {
         transition: none;
-    }
-
-    .rate button:hover {
-        transform: none;
     }
 }
 
