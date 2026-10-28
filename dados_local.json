@@ -1,0 +1,348 @@
+[
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1500000$3XtDS1GNHlQs59YUQLOF85$xcqijjpH5V3dfXadXTe5arJdRQlKVfNCvG0T5YaVIKo=",
+    "last_login": "2026-10-27T00:13:08.175Z",
+    "is_superuser": true,
+    "username": "Polter",
+    "first_name": "Dan",
+    "last_name": "Polter",
+    "email": "florencedgio@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-10-20T00:02:01Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1500000$ks6vQ6n6cicqBWsvCJxKax$QL7r4jm47Whv3zA1MZzufS0rQDptWzHaLpiZvmsGgA8=",
+    "last_login": "2026-10-24T00:46:41.191Z",
+    "is_superuser": false,
+    "username": "visitante1",
+    "first_name": "marreco",
+    "last_name": "patinho",
+    "email": "daniel.florencio@aluno.senac.rio",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-10-24T00:44:38.579Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "jxs1cgic0w5ss4vekp9khsttdf8d3tp9",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQRf-FtSEdHqXj0r3fQIYBpGpoUtqV8d-VpAvd3nPOfQlP-1b83tLq5yjOAsTpdwvEj1Q7iHeqt0XyUrd1DrIr8qBNXpeYnpfD_Tso1Mq3tuyyYchAJiqtMSY1OROsVmSBAxoccmSnx4QAE442KxcG7AVwcizeH9vEN6g:1xLSso:Ar7BWLxUubDrRYUwgsyF2z9bZK8prGvN_JbMzH0kDWU",
+    "expire_date": "2026-11-09T22:09:34.260Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "ycokoy30mss7auqiwg7ne47oys85a8gh",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQRf-FtSEM5VFcuvcbCDMDUjU0Ke3K-O_apAvd3nPOfYmYtrXGreclTizOAsTpd8NEj9x2wPfUbrOkua3LhHJX5EG7vM6cn5fD_TuoqddvbZXTEAiZ_FAgKZ0cD2HUjA4YDYKBrL2y5IvVxTJZVYB1MBlHhpLF-wPc8zge:1xLUoO:-P5CCwa15osxGvre3Rb_MrMnH-chiDiYUydr1Ovuuzg",
+    "expire_date": "2026-11-10T00:13:08.180Z"
+  }
+},
+{
+  "model": "sites.site",
+  "fields": {
+    "domain": "example.com",
+    "name": "example.com"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2026-10-21T22:03:04.510Z",
+    "user": [
+      "Polter"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "1",
+    "object_repr": "admin",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"First name\", \"Last name\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2026-10-21T22:03:36.037Z",
+    "user": [
+      "Polter"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "1",
+    "object_repr": "admin",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Last name\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2026-10-22T00:04:47.416Z",
+    "user": [
+      "Polter"
+    ],
+    "content_type": [
+      "projectus",
+      "comment"
+    ],
+    "object_id": "1",
+    "object_repr": "Comentário teste",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2026-10-22T00:06:51.849Z",
+    "user": [
+      "Polter"
+    ],
+    "content_type": [
+      "projectus",
+      "comment"
+    ],
+    "object_id": "1",
+    "object_repr": "Comentário teste",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2026-10-22T00:07:06.235Z",
+    "user": [
+      "Polter"
+    ],
+    "content_type": [
+      "projectus",
+      "comment"
+    ],
+    "object_id": "2",
+    "object_repr": "teste",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2026-10-22T00:08:38.766Z",
+    "user": [
+      "Polter"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "1",
+    "object_repr": "Polter",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Username\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2026-10-22T00:13:42.742Z",
+    "user": [
+      "Polter"
+    ],
+    "content_type": [
+      "projectus",
+      "comment"
+    ],
+    "object_id": "2",
+    "object_repr": "Comentário de teste.",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Comment\"]}}]"
+  }
+},
+{
+  "model": "projectus.rating",
+  "pk": 1,
+  "fields": {
+    "post": 3,
+    "user": [
+      "Polter"
+    ],
+    "score": 3,
+    "created_at": "2026-10-26T22:09:46.035Z",
+    "updated_at": "2026-10-27T00:16:15.986Z"
+  }
+},
+{
+  "model": "projectus.comment",
+  "pk": 2,
+  "fields": {
+    "post": 3,
+    "user": [
+      "Polter"
+    ],
+    "created_at": "2026-10-22T00:07:06.235Z",
+    "comment": "Comentário de teste.",
+    "is_active": true,
+    "is_deleted": false
+  }
+},
+{
+  "model": "projectus.comment",
+  "pk": 3,
+  "fields": {
+    "post": 3,
+    "user": [
+      "Polter"
+    ],
+    "created_at": "2026-10-22T00:37:34.414Z",
+    "comment": "outro teste",
+    "is_active": true,
+    "is_deleted": false
+  }
+},
+{
+  "model": "projectus.comment",
+  "pk": 4,
+  "fields": {
+    "post": 4,
+    "user": [
+      "Polter"
+    ],
+    "created_at": "2026-10-22T00:38:46.301Z",
+    "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla congue vehicula nisi, sit amet ornare justo. Nulla nec iaculis ante. Aenean mollis leo diam, at sodales nulla elementum eu.",
+    "is_active": true,
+    "is_deleted": false
+  }
+},
+{
+  "model": "projectus.comment",
+  "pk": 5,
+  "fields": {
+    "post": 4,
+    "user": [
+      "Polter"
+    ],
+    "created_at": "2026-10-22T00:40:18.277Z",
+    "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla congue vehicula nisi, sit amet ornare justo. Nulla nec iaculis ante. Aenean mollis leo diam, at sodales nulla elementum eu.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla congue vehicula nisi, sit amet ornare justo. Nulla nec iaculis ante. Aenean mollis leo diam, at sodales nulla elementum eu.",
+    "is_active": true,
+    "is_deleted": false
+  }
+},
+{
+  "model": "projectus.comment",
+  "pk": 6,
+  "fields": {
+    "post": 3,
+    "user": [
+      "Polter"
+    ],
+    "created_at": "2026-10-22T00:43:31.061Z",
+    "comment": "mais um teste",
+    "is_active": true,
+    "is_deleted": false
+  }
+},
+{
+  "model": "projectus.post",
+  "pk": 1,
+  "fields": {
+    "user": [
+      "Polter"
+    ],
+    "title": "Introdução ao Django",
+    "summary": "Conheça o framework web Python.",
+    "created_at": "2026-10-20T00:04:50.225Z",
+    "thumbnail": "https://picsum.photos/seed/django/800/450",
+    "textbody": "Django é um framework web poderoso para Python.",
+    "is_active": true,
+    "is_deleted": false
+  }
+},
+{
+  "model": "projectus.post",
+  "pk": 2,
+  "fields": {
+    "user": [
+      "Polter"
+    ],
+    "title": "Aprendendo Python",
+    "summary": "Os primeiros passos com Python.",
+    "created_at": "2026-10-20T00:04:50.225Z",
+    "thumbnail": "https://picsum.photos/seed/python/800/450",
+    "textbody": "Python é uma linguagem simples e versátil.",
+    "is_active": true,
+    "is_deleted": false
+  }
+},
+{
+  "model": "projectus.post",
+  "pk": 3,
+  "fields": {
+    "user": [
+      "Polter"
+    ],
+    "title": "O que é um ORM?",
+    "summary": "Entenda como trabalhar com bancos de dados.",
+    "created_at": "2026-10-20T00:04:50.225Z",
+    "thumbnail": "https://picsum.photos/seed/orm/800/450",
+    "textbody": "Um ORM permite manipular dados usando objetos.",
+    "is_active": true,
+    "is_deleted": false
+  }
+},
+{
+  "model": "projectus.post",
+  "pk": 4,
+  "fields": {
+    "user": [
+      "Polter"
+    ],
+    "title": "Criando APIs REST",
+    "summary": "Aprenda os conceitos básicos de uma API.",
+    "created_at": "2026-10-20T00:04:50.225Z",
+    "thumbnail": "https://picsum.photos/seed/api/800/450",
+    "textbody": "APIs REST permitem a comunicação entre aplicações.",
+    "is_active": true,
+    "is_deleted": false
+  }
+},
+{
+  "model": "projectus.post",
+  "pk": 5,
+  "fields": {
+    "user": [
+      "Polter"
+    ],
+    "title": "Templates no Django",
+    "summary": "Organize o HTML da sua aplicação.",
+    "created_at": "2026-10-20T00:04:50.225Z",
+    "thumbnail": "https://picsum.photos/seed/templates/800/450",
+    "textbody": "Os templates separam a apresentação da lógica.",
+    "is_active": true,
+    "is_deleted": false
+  }
+}
+]
