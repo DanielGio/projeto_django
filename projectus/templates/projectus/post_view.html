@@ -25,6 +25,7 @@
     <summary>Avaliar esta publicação</summary>
 
     <div class="rating-box__content">
+        
         <form class="rating-box__vote" method="POST"
               action="{% url 'rate_post' id=post.id %}">
             {% csrf_token %}
