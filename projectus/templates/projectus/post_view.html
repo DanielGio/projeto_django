@@ -25,7 +25,7 @@
     <summary>Avaliar esta publicação</summary>
 
     <div class="rating-box__content">
-        
+
         <form class="rating-box__vote" method="POST"
               action="{% url 'rate_post' id=post.id %}">
             {% csrf_token %}
@@ -107,5 +107,53 @@
         {% endfor %}
     </div>
 </aside>
+
+<script>
+document.querySelectorAll('.rating-box__details').forEach((details) => {
+    const summary = details.querySelector('summary');
+    const content = details.querySelector('.rating-box__content');
+
+    if (!summary || !content) return;
+
+    summary.addEventListener('click', (event) => {
+        event.preventDefault();
+
+        if (!details.open) {
+            details.open = true;
+            content.style.height = '0px';
+            content.style.opacity = '0';
+
+            requestAnimationFrame(() => {
+                content.style.height = content.scrollHeight + 'px';
+                content.style.opacity = '1';
+            });
+
+            const finishOpening = (event) => {
+                if (event.propertyName !== 'height') return;
+                content.style.height = 'auto';
+                content.removeEventListener('transitionend', finishOpening);
+            };
+
+            content.addEventListener('transitionend', finishOpening);
+        } else {
+            content.style.height = content.scrollHeight + 'px';
+            content.style.opacity = '1';
+
+            requestAnimationFrame(() => {
+                content.style.height = '0px';
+                content.style.opacity = '0';
+            });
+
+            const finishClosing = (event) => {
+                if (event.propertyName !== 'height') return;
+                details.open = false;
+                content.removeEventListener('transitionend', finishClosing);
+            };
+
+            content.addEventListener('transitionend', finishClosing);
+        }
+    });
+});
+</script>
 
 {% endblock %}

@@ -750,32 +750,17 @@ main > section form .helptext {
     border-radius: 3px;
 }
 
-/* Animação do conteúdo ao abrir */
+/* ---------- Animação da avaliação ---------- */
 
 .rating-box__content {
-    display: grid;
-    grid-template-rows: 0fr;
-    opacity: 0;
-    transition: grid-template-rows .35s ease, opacity .3s ease;
-}
-
-.rating-box__content > form {
-    min-height: 0;
+    height: 0;
     overflow: hidden;
+    opacity: 0;
+    transition: height .18s ease-out, opacity .12s ease-out;
 }
 
 .rating-box__details[open] .rating-box__content {
-    grid-template-rows: 1fr;
     opacity: 1;
-}
-
-.rating-box__details[open] .rating-box__vote {
-    margin-top: .75rem;
-    align-items: flex-start;
-}
-
-.rating-box__details .rating-box__vote span {
-    flex-basis: 100%;
 }
 
 @media (prefers-reduced-motion: reduce) {

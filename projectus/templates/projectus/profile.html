@@ -1,37 +1,111 @@
+
 {% extends 'projectus/_base.html' %}
 
 {% block content %}
 
 <section>
-
     <h2>Meu perfil</h2>
-
     <p>Olá, {{ request.user.username }}! Edite seus dados abaixo.</p>
+
     <form method="post">
         {% csrf_token %}
+        <input type="hidden" name="action" value="edit_profile">
+
         {% for field in form %}
-        <p>
-            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-            {{ field }}
-            {% for error in field.errors %}
-        <div>{{ error }}</div>
+            <p>
+                <label for="{{ field.id_for_label }}">
+                    {{ field.label }}
+                </label>
+                {{ field }}
+
+                {% for error in field.errors %}
+                    <div>{{ error }}</div>
+                {% endfor %}
+            </p>
         {% endfor %}
-        </p>
-        {% endfor %}
+
         {% if form.non_field_errors %}
-        <p>
-            {% for error in form.non_field_errors %}
-        <div>{{ error }}</div>
-        {% endfor %}
-        </p>
+            <p>
+                {% for error in form.non_field_errors %}
+                    <div>{{ error }}</div>
+                {% endfor %}
+            </p>
         {% endif %}
-        <p><button type="submit">Salvar alterações</button></p>
+
+        <p>
+            <button type="submit">Salvar alterações</button>
+        </p>
 
         {% if user.is_authenticated %}
-        <p><a href="{% url 'password_change' %}">Alterar minha senha</a></p>
+            <p>
+                <a href="{% url 'password_change' %}">
+                    Alterar minha senha
+                </a>
+            </p>
         {% endif %}
     </form>
+</section>
 
+<hr>
+
+<section>
+    <h2>Criar publicação</h2>
+    <p>Compartilhe uma nova publicação com título, resumo, conteúdo e imagem.</p>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="hidden" name="action" value="create_post">
+
+        {% for field in post_form %}
+            <p>
+                <label for="{{ field.id_for_label }}">
+                    {{ field.label }}
+                </label>
+                {{ field }}
+
+                {% for error in field.errors %}
+                    <div>{{ error }}</div>
+                {% endfor %}
+            </p>
+        {% endfor %}
+
+        {% if post_form.non_field_errors %}
+            <p>
+                {% for error in post_form.non_field_errors %}
+                    <div>{{ error }}</div>
+                {% endfor %}
+            </p>
+        {% endif %}
+
+        <p>
+            <button type="submit">Publicar</button>
+        </p>
+    </form>
+</section>
+
+<hr>
+
+<section>
+    <h2>Minhas publicações</h2>
+
+    {% for post in posts %}
+        <article>
+            <h3>{{ post.title }}</h3>
+            <p>{{ post.summary }}</p>
+
+            {% if post.image %}
+                <img
+                    src="{{ post.image.url }}"
+                    alt="{{ post.title }}"
+                    style="max-width: 100%; height: auto;"
+                >
+            {% endif %}
+
+            <p>{{ post.textbody }}</p>
+        </article>
+    {% empty %}
+        <p>Você ainda não criou nenhuma publicação.</p>
+    {% endfor %}
 </section>
 
 {% endblock %}

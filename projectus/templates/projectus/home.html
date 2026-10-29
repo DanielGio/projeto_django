@@ -44,9 +44,23 @@
     <ul class="post-list">
         {% for post in posts %}
         <li class="post-item">
-            <a href="{% url 'post_view' id=post.id %}" tabindex="-1" aria-hidden="true">
-                <img class="post-item__thumb" src="{{ post.thumbnail }}" alt="" loading="lazy">
-            </a>
+           <a href="{% url 'post_view' id=post.id %}" tabindex="-1" aria-hidden="true">
+    {% if post.image %}
+        <img
+            class="post-item__thumb"
+            src="{{ post.image.url }}"
+            alt=""
+            loading="lazy"
+        >
+    {% elif post.thumbnail %}
+        <img
+            class="post-item__thumb"
+            src="{{ post.thumbnail }}"
+            alt=""
+            loading="lazy"
+        >
+    {% endif %}
+</a>
 
             <div>
                 <h3 class="post-item__title">

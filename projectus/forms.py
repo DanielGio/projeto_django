@@ -2,6 +2,34 @@ from django import forms
 from .models import Comment
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from django import forms
+from projectus.models import Post
+
+
+class PostCreateForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = ['title', 'summary', 'textbody', 'image']
+
+        labels = {
+            'title': 'Título',
+            'summary': 'Resumo',
+            'textbody': 'Conteúdo',
+            'image': 'Imagem da publicação',
+        }
+
+        widgets = {
+            'title': forms.TextInput(attrs={
+                'placeholder': 'Digite o título da publicação'
+            }),
+            'summary': forms.TextInput(attrs={
+                'placeholder': 'Escreva um breve resumo'
+            }),
+            'textbody': forms.Textarea(attrs={
+                'placeholder': 'Escreva sua publicação',
+                'rows': 5
+            }),
+        }
 
 
 class CommentForm(forms.ModelForm):
